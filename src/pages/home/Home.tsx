@@ -1,8 +1,9 @@
-import React, { FC, useEffect } from 'react'
+import React, { FC, useEffect, useState, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import LinearProgress from '@material-ui/core/LinearProgress'
 import Masonry from 'react-masonry-css'
+import ImageViewer from 'react-simple-image-viewer'
 
 import { fetchPosts, changeLoadValue } from '../../store/actions'
 import { RootState, AppState, PostsState } from '../../utils/types'
@@ -16,9 +17,17 @@ const breakpointColumnsObj = {
 }
 
 const Home: FC = (): JSX.Element => {
+  const [isViewerOpen, setIsViewerOpen] = useState(false)
+  const [images, setImages] = useState([] as Array<string> | Array<never>)
+
   const { loading } = useSelector((s: RootState): AppState => s.app)
   const { fetchedPosts, loadValue, dist } = useSelector((s: RootState): PostsState => s.posts)
   const dsp = useDispatch()
+
+  const openImageViewer = useCallback((src) => {
+    setImages([src])
+    setIsViewerOpen(true)
+  }, [])
 
   useEffect(() => getPosts(loadValue), [loadValue])
 
@@ -37,11 +46,14 @@ const Home: FC = (): JSX.Element => {
         {fetchedPosts.map((post) =>
           post?.url.includes('.jpg') ? (
             <div key={post?.id} className="post">
-              <img src={post.url} alt={post?.title} />
+              <button type="button" onClick={() => openImageViewer(post.url)}>
+                <img src={post.url} alt={post?.title} />
+              </button>
             </div>
           ) : null,
         )}
       </Masonry>
+      {isViewerOpen && <ImageViewer src={images} onClose={closeImageViewer} />}
       {loadValue - dist > 10 && fetchedPosts.length ? <p className="home__info_no-content">Пока всё!</p> : ''}
       {loading ? <LinearProgress /> : ''}
     </div>
@@ -54,6 +66,11 @@ const Home: FC = (): JSX.Element => {
         dsp(changeLoadValue())
       }
     }
+  }
+
+  function closeImageViewer() {
+    setImages([])
+    setIsViewerOpen(false)
   }
 
   function getPosts(n: number) {

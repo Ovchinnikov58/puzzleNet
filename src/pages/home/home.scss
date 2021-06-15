@@ -1,3 +1,5 @@
+@import 'src/styles/variables.scss';
+
 .home {
   padding: 5px 0 45px 0;
   text-align: center;
@@ -29,7 +31,15 @@
 
 /* Style your items */
 .my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
-  background: #ffffff;
+  background: $fon;
   margin-bottom: 5px;
   // max-height: 300px;
+}
+
+.cgseTX {
+ background-color: $viewerBackColor;
+}
+
+.kwpAUB {
+  color: $menuTextColor;
 }
