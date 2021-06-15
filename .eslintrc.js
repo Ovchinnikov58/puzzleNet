@@ -4,9 +4,9 @@ module.exports = {
     'airbnb/hooks',
     'plugin:@typescript-eslint/recommended',
     'plugin:jest/recommended',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
   ],
-  plugins: ['react', '@typescript-eslint', 'jest', "prettier"],
+  plugins: ['react', '@typescript-eslint', 'jest', 'prettier'],
   env: {
     browser: true,
     es6: true,
@@ -19,22 +19,25 @@ module.exports = {
   overrides: [
     {
       files: ['*.ts', '*.tsx'], // Your TypeScript files extension
-      parserOptions: {
-        project: ['./tsconfig.json'], // Specify it only for TypeScript files
-      },
-    }
+    },
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 2018,
     sourceType: 'module',
     project: './tsconfig.json',
+    createDefaultProgram: true,
   },
   rules: {
     'linebreak-style': 'off',
+    'import/prefer-default-export': 'off',
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'react-hooks/exhaustive-deps': 'off',
+    'no-underscore-dangle': 'off',
     'prettier/prettier': [
       'error',
       {
@@ -42,4 +45,4 @@ module.exports = {
       },
     ],
   },
-};
+}

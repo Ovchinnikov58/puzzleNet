@@ -3,7 +3,7 @@ import * as React from 'react'
 function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
-    <svg viewBox="0 0 100 100" {...props}>
+    <svg width="2em" height="2em" viewBox="0 0 100 100" {...props}>
       <path
         fill="#00a7a7"
         d="M21,64v16c0,2.761,2.239,5,5,5h48c2.761,0,5-2.239,5-5V32c0-2.761-2.239-5-5-5H57.141l0,0C58.91,25.197,60,22.726,60,20c0-5.523-4.477-10-10-10s-10,4.477-10,10c0,2.725,1.09,5.196,2.859,7l-0.999,0H26c-2.761,0-5,2.239-5,5v15l0,1.859C22.804,47.09,25.274,46,28,46c5.523,0,10,4.477,10,10s-4.477,10-10,10c-2.726,0-5.196-1.09-7-2.859L21,64z"
