@@ -1,5 +1,8 @@
+@import 'src/styles/variables.scss';
+
 .notFound {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 400px;
@@ -7,5 +10,12 @@
   &__message {
     font-size: 25px;
     font-weight: 700;
+  }
+
+  &__link {
+    margin-top: 10px;
+    font-size: 15px;
+    text-decoration: none;
+    color: $menuTextColor !important;
   }
 }

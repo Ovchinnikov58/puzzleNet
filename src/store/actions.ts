@@ -1,12 +1,12 @@
-import { Dispatch } from 'redux'
+import { AuthControl } from '../utils/types'
 import {
-  HIDE_ALERT,
   HIDE_LOADER,
   REQUEST_POSTS,
-  SHOW_ALERT,
   SHOW_LOADER,
   CHANGE_SIDER_VISIBILITY,
   CHANGE_LOAD_VALUE,
+  REQUEST_USER,
+  RESET,
 } from './types'
 
 export function changeSiderVisibility() {
@@ -33,28 +33,22 @@ export function hideLoader() {
   }
 }
 
-export function showAlert(text: string) {
-  return (dispatch: Dispatch) => {
-    dispatch({
-      type: SHOW_ALERT,
-      payload: text,
-    })
-
-    setTimeout(() => {
-      dispatch(hideAlert())
-    }, 3000)
-  }
-}
-
-export function hideAlert() {
-  return {
-    type: HIDE_ALERT,
-  }
-}
-
 export function fetchPosts(value: number) {
   return {
     type: REQUEST_POSTS,
     value,
+  }
+}
+
+export function fetchUser(values: AuthControl) {
+  return {
+    type: REQUEST_USER,
+    values,
+  }
+}
+
+export function resetStore() {
+  return {
+    type: RESET,
   }
 }

@@ -1,4 +1,4 @@
-import { FETCH_POSTS, CHANGE_LOAD_VALUE } from '../types'
+import { FETCH_POSTS, CHANGE_LOAD_VALUE, RESET } from '../types'
 import { Post } from '../../utils/types'
 
 const initialState = {
@@ -22,6 +22,8 @@ export const postsReducer = (state: any = initialState, action: any) => {
       return { ...state, fetchedPosts: result, dist: action.payload.data.dist }
     case CHANGE_LOAD_VALUE:
       return { ...state, loadValue: state.loadValue + 10 }
+    case RESET:
+      return initialState
     default:
       return state
   }

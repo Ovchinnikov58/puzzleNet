@@ -1,4 +1,4 @@
-import { HIDE_ALERT, HIDE_LOADER, SHOW_ALERT, SHOW_LOADER, CHANGE_SIDER_VISIBILITY } from '../types'
+import { HIDE_LOADER, SHOW_LOADER, CHANGE_SIDER_VISIBILITY, RESET } from '../types'
 
 const initialState = {
   loading: false,
@@ -13,12 +13,10 @@ export const appReducer = (state: any = initialState, action: any) => {
       return { ...state, loading: true }
     case HIDE_LOADER:
       return { ...state, loading: false }
-    case SHOW_ALERT:
-      return { ...state, alert: action.payload }
-    case HIDE_ALERT:
-      return { ...state, alert: null }
     case CHANGE_SIDER_VISIBILITY:
       return { ...state, siderIsVisible: !state.siderIsVisible }
+    case RESET:
+      return initialState
     default:
       return state
   }

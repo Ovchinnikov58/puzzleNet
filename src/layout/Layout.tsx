@@ -1,4 +1,5 @@
 import React, { FC, ReactNode } from 'react'
+import { useLocation } from 'react-router-dom'
 import Header from '../components/header/Header'
 import Footer from '../components/footer/Footer'
 
@@ -9,12 +10,14 @@ type LayoutProps = {
 }
 
 const Layout: FC<LayoutProps> = (props: LayoutProps): JSX.Element => {
+  const location = useLocation()
   const { children } = props
+
   return (
     <div className="layout">
-      <Header />
+      {location.pathname !== '/auth' ? <Header /> : null}
       <div className="content">{children}</div>
-      <Footer />
+      {location.pathname !== '/auth' ? <Footer /> : null}
     </div>
   )
 }

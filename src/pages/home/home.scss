@@ -43,3 +43,8 @@
 .kwpAUB {
   color: $menuTextColor;
 }
+
+.MuiButton-containedPrimary {
+  color: $menuTextColor !important;
+  background-color: $templateBackColor !important;
+}

@@ -30,7 +30,6 @@ const Home: FC = (): JSX.Element => {
   }, [])
 
   useEffect(() => getPosts(loadValue), [loadValue])
-
   useEffect(() => {
     document.addEventListener('scroll', handleScroll)
     return () => document.removeEventListener('scroll', handleScroll)
