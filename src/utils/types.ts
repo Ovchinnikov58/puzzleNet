@@ -38,3 +38,9 @@ export type User = {
   login: string
   password: string
 }
+
+export type Message = {
+  id: string
+  user: string
+  message: string
+}

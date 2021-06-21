@@ -1,0 +1,69 @@
+@import 'src/styles/variables.scss';
+
+.chat {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__textarea {
+    height: 400px;
+    width: 300px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid $greyLight;
+    border-radius: 5px;
+    box-sizing: initial;
+    overflow-y: auto;
+  }
+
+  &__message-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__message {
+    align-self: flex-start;
+    margin-bottom: 10px;
+    background-color: $templateBackColor;
+    padding: 10px 5px;
+    border-radius: 5px;
+
+    &_self {
+      align-self: flex-end;
+      background-color: $siderBackColor;
+    }
+  }
+
+
+  &__input {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    input {
+      width: 300px;
+    }
+  }
+
+  &__sendBtn {
+    background-color: $fon;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: -45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 8px;
+    border: 1px solid $greyLight;
+    border-radius: 50%;
+  }
+}
