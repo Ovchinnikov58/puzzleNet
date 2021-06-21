@@ -11,6 +11,12 @@
     align-items: flex-start;
   }
 
+  &__loader {
+    @media (max-width: 500px) {
+      align-self: center;
+    }
+  }
+
   &__textarea {
     height: 400px;
     width: 300px;
@@ -38,6 +44,8 @@
     padding: 10px 5px;
     border-radius: 5px;
     color: var(--menuTextColor);
+    max-width: 260px;
+    word-wrap: break-word;
 
     &_self {
       align-self: flex-end;
