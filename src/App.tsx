@@ -52,7 +52,13 @@ const App: FC = (): JSX.Element => {
             <Route path="/" exact render={() => (!isAuth ? <Redirect to="/auth" /> : <Home />)} />
             <Route
               path="/chat"
-              render={() => (!isAuth && !localStorage.getItem('user') ? <Redirect to="/auth" /> : <Chat />)}
+              render={() =>
+                (!isAuth && !localStorage.getItem('user')) || !localStorage.getItem('password') ? (
+                  <Redirect to="/auth" />
+                ) : (
+                  <Chat />
+                )
+              }
             />
             <Route component={NotFound} />
           </Switch>
