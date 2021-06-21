@@ -25,22 +25,7 @@ const App: FC = (): JSX.Element => {
   const dsp = useDispatch()
 
   useEffect(checkLocalStorage, [])
-
-  useEffect(() => {
-    if (localStorage.getItem('theme')) {
-      dsp(changeTheme())
-    }
-  }, [])
-
-  useEffect(() => {
-    if (darkTheme) {
-      document.documentElement.classList.add('dark')
-      localStorage.setItem('theme', 'dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-      localStorage.removeItem('theme')
-    }
-  }, [darkTheme])
+  useEffect(addDarkTheme, [darkTheme])
 
   return (
     <div className="App">
@@ -77,6 +62,19 @@ const App: FC = (): JSX.Element => {
     }
     if (localStorageValues.login) {
       dsp(fetchUser(localStorageValues))
+    }
+    if (localStorage.getItem('theme')) {
+      dsp(changeTheme())
+    }
+  }
+
+  function addDarkTheme() {
+    if (darkTheme) {
+      document.documentElement.classList.add('dark')
+      localStorage.setItem('theme', 'dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+      localStorage.removeItem('theme')
     }
   }
 }
