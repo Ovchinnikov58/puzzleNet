@@ -34,7 +34,7 @@ const Chat: FC = (): JSX.Element => {
   }, [messageHistory])
 
   useEffect(() => {
-    if (connectionStatus === 'Open') toast('Соединение установлено', { type: 'success' })
+    // if (connectionStatus === 'Open') toast('Соединение установлено', { type: 'success' })
     if (connectionStatus === 'Closed') toast('Соединение не установлено', { type: 'error' })
   }, [connectionStatus])
 
@@ -55,11 +55,11 @@ const Chat: FC = (): JSX.Element => {
           ))}
         </ul>
       </div>
-      <div className="chat__input">
+      <div className="chat__input-block">
         <TextField
-          className="auth__input"
           id="messageText"
-          label="messageText"
+          label="Текст сообщения:"
+          className="chat__input"
           variant="outlined"
           autoFocus
           required
@@ -72,7 +72,7 @@ const Chat: FC = (): JSX.Element => {
           onClick={handleClickSendMessage}
           disabled={readyState !== ReadyState.OPEN}
         >
-          <SendIcon />
+          <SendIcon className="sendIcon" />
         </button>
       </div>
     </div>

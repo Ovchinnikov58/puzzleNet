@@ -1,3 +1,7 @@
+@import 'src/styles/variables.scss';
+
 .App {
+  color: $menuTextColor;
+  background-color: var(--fon);
 }
 

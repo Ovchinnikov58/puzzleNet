@@ -10,14 +10,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid $menuTextColor;
+    border: 2px solid var(--menuTextColor);
     border-radius: 5px;
     padding: 20px;
   }
 
   &__title {
     font-size: 20px;
-    color: $menuTextColor;
+    color: var(--menuTextColor);
     margin-bottom: 10px;
   }
 

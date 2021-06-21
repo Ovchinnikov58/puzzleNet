@@ -4,15 +4,15 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: $templateBackColor;
-  color: $menuTextColor;
+  background-color: var(--templateBackColor);
+  color: var(--menuTextColor);
   padding: 10px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
 
   &__link {
-    color: $menuTextColor !important;
+    color: var(--menuTextColor) !important;
     display: flex;
     align-items: center;
   }

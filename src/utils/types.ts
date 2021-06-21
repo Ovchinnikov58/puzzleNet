@@ -7,6 +7,7 @@ export type RootState = {
 export type AppState = {
   loading: boolean
   siderIsVisible: boolean
+  darkTheme: boolean
 }
 
 export type PostsState = {
@@ -31,6 +32,7 @@ export type AuthControl = {
   login: string | null
   password: string | null
   history: any
+  location?: string
 }
 
 export type User = {

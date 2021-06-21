@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { TextField } from '@material-ui/core'
@@ -13,8 +13,6 @@ const Auth: FC = (): JSX.Element => {
 
   const dsp = useDispatch()
   const history = useHistory()
-
-  useEffect(checkLocalStorage, [])
 
   return (
     <div className="auth">
@@ -46,17 +44,6 @@ const Auth: FC = (): JSX.Element => {
       </form>
     </div>
   )
-
-  function checkLocalStorage() {
-    const localStorageValues = {
-      login: localStorage.getItem('user'),
-      password: localStorage.getItem('password'),
-      history,
-    }
-    if (localStorageValues.login) {
-      dsp(fetchUser(localStorageValues))
-    }
-  }
 
   function onSubmitHandler(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()

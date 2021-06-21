@@ -55,7 +55,7 @@ const Header: FC = (): JSX.Element => {
           ) : null}
           <PuzzleIcon />
           <Typography variant="h6" className={classes.title} style={{ marginLeft: '10px' }}>
-            PuzzleNet
+            PuzzleNet {location.pathname === '/' ? '/ Лента' : null} {location.pathname === '/chat' ? '/ Чат' : null}
           </Typography>
           {showElems ? (
             <Button color="inherit" onClick={onLogoutBtnHandler}>

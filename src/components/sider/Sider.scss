@@ -7,11 +7,29 @@
     width: 200px;
 
     &__link {
-      color: $menuTextColor;
+      color: var(--menuTextColor);
     }
 
     &__icon  {
       margin-right: 10px;
+    }
+
+    &__user-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: var(--menuTextColor);
+    }
+
+    &__user-logo {
+      margin: 5px 0;
+    }
+
+    &__theme {
+      display: flex;
+      justify-content: center;
     }
   }
 
@@ -22,11 +40,20 @@
 }
 
 .MuiDrawer-paper {
-  background-color: $siderBackColor !important;
+  background-color: var(--siderBackColor) !important;
 }
 .MuiListItem-button {
   padding-left: 30% !important;
 }
 .MuiList-padding {
   padding: 0 !important;
+}
+.MuiFormControlLabel-label {
+  color: var(--menuTextColor);
+}
+.MuiSwitch-colorPrimary.Mui-checked {
+  color: #7b5d75 !important;
+}
+.MuiSwitch-colorPrimary.Mui-checked + .MuiSwitch-track {
+  background-color: var(--menuTextColor) !important;
 }

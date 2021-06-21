@@ -7,11 +7,18 @@ import {
   CHANGE_LOAD_VALUE,
   REQUEST_USER,
   RESET,
+  CHANGE_THEME,
 } from './types'
 
 export function changeSiderVisibility() {
   return {
     type: CHANGE_SIDER_VISIBILITY,
+  }
+}
+
+export function changeTheme() {
+  return {
+    type: CHANGE_THEME,
   }
 }
 

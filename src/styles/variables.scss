@@ -1,6 +1,40 @@
-$menuTextColor: #2d0625;
-$greyLight: #767676;
+$menuTextColor: #252b31;
 $templateBackColor: #96dff4;
 $siderBackColor: #d5e3ac;
 $viewerBackColor: rgba(#ffffff, .7);
-$fon: #ffffff
+$fon: #ffffff;
+$borderChat: #767676;
+
+$menuTextColorDarkTheme: #d7dce2;
+$templateBackColorDarkTheme: #252b31;
+$siderBackColorDarkTheme: #343839;
+$viewerBackColorDarkTheme: rgba(#767676, .7);
+$fonDarkTheme: #838b89;
+$borderChatDarkTheme: #e7d2d2;
+$chatMessageDarkColor: #394a7d;
+
+@mixin whenDark {
+  html.dark & {
+    @content;
+  }
+}
+
+body {
+  --menuTextColor: #{$menuTextColor};
+  --templateBackColor: #{$templateBackColor};
+  --siderBackColor: #{$siderBackColor};
+  --viewerBackColor: #{$viewerBackColor};
+  --fon: #{$fon};
+  --borderChat: #{$borderChat};
+  --chatMessage: #{$templateBackColor};
+
+  @include whenDark {
+    --menuTextColor: #{$menuTextColorDarkTheme};
+    --templateBackColor: #{$templateBackColorDarkTheme};
+    --siderBackColor: #{$siderBackColorDarkTheme};
+    --viewerBackColor: #{$viewerBackColorDarkTheme};
+    --fon: #{$fonDarkTheme};
+    --borderChat: #{$borderChatDarkTheme};
+    --chatMessage: #{$chatMessageDarkColor};
+  }
+}

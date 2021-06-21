@@ -1,9 +1,9 @@
-import { HIDE_LOADER, SHOW_LOADER, CHANGE_SIDER_VISIBILITY, RESET } from '../types'
+import { HIDE_LOADER, SHOW_LOADER, CHANGE_SIDER_VISIBILITY, RESET, CHANGE_THEME } from '../types'
 
 const initialState = {
   loading: false,
   siderIsVisible: false,
-  alert: null,
+  darkTheme: false,
 }
 
 // eslint-disable-next-line
@@ -15,6 +15,8 @@ export const appReducer = (state: any = initialState, action: any) => {
       return { ...state, loading: false }
     case CHANGE_SIDER_VISIBILITY:
       return { ...state, siderIsVisible: !state.siderIsVisible }
+    case CHANGE_THEME:
+      return { ...state, darkTheme: !state.darkTheme }
     case RESET:
       return initialState
     default:

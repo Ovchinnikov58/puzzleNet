@@ -32,7 +32,13 @@ function* authWorker({ values }: AnyAction) {
     if (result) {
       yield put({ type: FETCH_USER, payload: { ...result } })
       yield call(() => userToLocalStorage(result))
-      yield call(() => values.history.push('/'))
+      yield call(() => {
+        if (values.location !== '/') {
+          values.history.push(values.location)
+          return
+        }
+        if (values.location === '/auth') values.history.push('/')
+      })
     } else {
       toast('Пользователя не существует!', { type: 'error' })
     }
