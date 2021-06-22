@@ -94,3 +94,11 @@
 .MuiFormLabel-root {
   color: var(--menuTextColor) !important;
 }
+.MuiInputBase-root {
+  color: var(--menuTextColor) !important;
+}
+.MuiOutlinedInput-input:-webkit-autofill {
+  -webkit-box-shadow: inset 0 0 0 50px var(--fon) !important;
+  -webkit-text-fill-color: var(--menuTextColor) !important;
+  color: var(--menuTextColor) !important;
+}

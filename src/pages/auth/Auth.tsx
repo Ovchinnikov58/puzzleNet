@@ -38,7 +38,7 @@ const Auth: FC = (): JSX.Element => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Button type="submit" color="primary" variant="contained">
+        <Button type="submit" color="primary" variant="contained" className="auth__btn">
           Войти
         </Button>
       </form>
